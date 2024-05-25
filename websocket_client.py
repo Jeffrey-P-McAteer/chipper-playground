@@ -30,17 +30,14 @@ class HttpClientCliApp(cmd2.Cmd):
     super(HttpClientCliApp, self).__init__(*args, **kwargs)
     self.prompt = '> '
 
-  def do_get(self, s: cmd2.Statement):
+  def do_connect(self, s: cmd2.Statement):
     self.poutput(f'Got s.arg_list = {s.arg_list}')
 
-  def do_post(self, s: cmd2.Statement):
-    self.poutput(f'Got s.arg_list = {s.arg_list}')
 
 def main(args=sys.argv):
   print('Usage: ')
-  print('  get http://server.com/path?params=123')
-  print('  post http://server.com/path')
-  print('    # Interactive prompt to paste in POST-ed data payload')
+  print('  connect http://server.com/ws')
+  print('    # Interactive prompt that sends pasted lines to server and returns replies immediately')
   print()
   print('Usage: ')
   c = HttpClientCliApp()
